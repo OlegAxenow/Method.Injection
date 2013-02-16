@@ -11,8 +11,7 @@ namespace Method.Inject.Spec
 		public void Registered_builders_should_be_returned()
 		{
 			// arrange
-			MethodBuilderRegistry.Clear();
-			MethodBuilderRegistry.Register<IDoWorkInjection>(new DoWorkMethodBuilder());
+			ResetRegistry();
 			
 			// act
 			var methodBuilder = MethodBuilderRegistry.Get<IDoWorkInjection>();
@@ -25,8 +24,7 @@ namespace Method.Inject.Spec
 		public void Unregistered_builders_should_throw_exception()
 		{
 			// arrange
-			MethodBuilderRegistry.Clear();
-			MethodBuilderRegistry.Register<IDoWorkInjection>(new DoWorkMethodBuilder());
+			ResetRegistry();
 
 			// act + assert
 			Assert.That(() => MethodBuilderRegistry.Get(typeof(string)), Throws.InstanceOf<KeyNotFoundException>());
@@ -36,8 +34,7 @@ namespace Method.Inject.Spec
 		public void Clear_should_remove_registered_builders()
 		{
 			// arrange
-			MethodBuilderRegistry.Clear();
-			MethodBuilderRegistry.Register<IDoWorkInjection>(new DoWorkMethodBuilder());
+			ResetRegistry();
 
 			// act + assert
 			var methodBuilder = MethodBuilderRegistry.Get<IDoWorkInjection>();
@@ -45,6 +42,12 @@ namespace Method.Inject.Spec
 
 			MethodBuilderRegistry.Clear();
 			Assert.That(() => MethodBuilderRegistry.Get<IDoWorkInjection>(), Throws.InstanceOf<KeyNotFoundException>());
+		}
+
+		private static void ResetRegistry()
+		{
+			MethodBuilderRegistry.Clear();
+			MethodBuilderRegistry.Register<IDoWorkInjection>(new DoWorkMethodBuilder());
 		}
 	}
 }
