@@ -8,8 +8,8 @@
     <ProjectGuid>{2AF0F9E3-5DD5-4D8B-B3C0-29CDE13EFB44}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Method.Inject.Spec.net40</RootNamespace>
-    <AssemblyName>Method.Inject.Spec.net40</AssemblyName>
+    <RootNamespace>Method.Inject.Spec</RootNamespace>
+    <AssemblyName>Method.Inject.Spec</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <RestorePackages>true</RestorePackages>
     <FileAlignment>512</FileAlignment>
