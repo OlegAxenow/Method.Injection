@@ -5,7 +5,7 @@ namespace Method.Inject.Spec.Types
 	/// <summary>
 	/// Helper class. Used for frequent operation
 	/// </summary>
-	public class BaseTypeHelper
+	public static class BaseTypeHelper
 	{
 		public static BaseType Create(Type targetType, InjectionSet injectionSet)
 		{

@@ -32,8 +32,8 @@ namespace Method.Inject
 		public static void EmitInjectionLoop(this ILGenerator il, MethodInfo injectionMethod, 
 			Action<ILGenerator> passParametersForInjectionMethod)
 		{
-			Label endOfFor = il.DefineLabel();
-			Label beginOfFor = il.DefineLabel();
+			var endOfFor = il.DefineLabel();
+			var beginOfFor = il.DefineLabel();
 
 			il.Emit(OpCodes.Ldc_I4_0);
 			il.Emit(OpCodes.Stloc_1);

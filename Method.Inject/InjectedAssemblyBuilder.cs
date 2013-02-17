@@ -24,7 +24,7 @@ namespace Method.Inject
 			_injectionSet = injectionSet;
 			_injectedTypeBuilderFactory = injectedTypeBuilderFactory;
 
-			var assemblyName = new AssemblyName { Name = injectionSet.UniqueKey + Guid.NewGuid().ToString() };
+			var assemblyName = new AssemblyName { Name = injectionSet.UniqueKey + Guid.NewGuid() };
 
 			_assemblyBuilder = Thread.GetDomain().DefineDynamicAssembly(assemblyName,
 				saveAssemblyToDisk ? AssemblyBuilderAccess.RunAndSave : AssemblyBuilderAccess.Run);

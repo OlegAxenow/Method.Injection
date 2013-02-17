@@ -17,10 +17,8 @@ namespace Method.Inject.Spec
 		{
 			foreach (var invalidNameCharacter in StringHelper.InvalidNameCharacters)
 			{
-				string name = "abc" + invalidNameCharacter + "123";
-				Assert.That(StringHelper.IsInvalidName(name), Is.True);
-			}
-			
+				Assert.That(StringHelper.IsInvalidName("abc" + invalidNameCharacter + "123"), Is.True);
+			}	
 		}
 	}
 }

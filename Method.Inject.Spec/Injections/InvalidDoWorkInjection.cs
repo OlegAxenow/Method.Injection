@@ -1,5 +1,3 @@
-using Method.Inject.Spec.Types;
-
 namespace Method.Inject.Spec.Injections
 {
 	public class InvalidDoWorkInjection : DoWorkInjection

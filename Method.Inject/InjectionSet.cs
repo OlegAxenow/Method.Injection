@@ -44,13 +44,11 @@ namespace Method.Inject
 			var type = methodInjection.GetType();
 			var interfaces = type.GetInterfaces();
 
-			foreach (var @interface in interfaces)
+			foreach (var @interface in interfaces
+				.Where(@interface => typeof(IMethodInjection).IsAssignableFrom(@interface) && typeof(IMethodInjection) != @interface))
 			{
-				if (typeof(IMethodInjection).IsAssignableFrom(@interface) && typeof(IMethodInjection) != @interface)
-				{
-					type = @interface;
-					break;
-				}
+				type = @interface;
+				break;
 			}
 
 			List<IMethodInjection> list;
