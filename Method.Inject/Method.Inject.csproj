@@ -49,6 +49,7 @@
     <Compile Include="InjectionSet.cs" />
     <Compile Include="MethodBuilderRegistry.cs" />
     <Compile Include="MethodInjection.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringHelper.cs" />
   </ItemGroup>

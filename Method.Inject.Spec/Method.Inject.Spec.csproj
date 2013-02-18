@@ -41,7 +41,10 @@
   <ItemGroup>
     <Compile Include="Injections\DoWorkInjection2.cs" />
     <Compile Include="Injections\DoWorkInjectionDirect.cs" />
+    <Compile Include="Injections\NonVirtualWorkInjection.cs" />
     <Compile Include="Injections\InvalidDoWorkInjection.cs" />
+    <Compile Include="Injections\IProtectedWorkInjection.cs" />
+    <Compile Include="Injections\ProtectedWorkInjection.cs" />
     <Compile Include="MethodBuilderRegistrySpec.cs" />
     <Compile Include="Types\BaseType.cs" />
     <Compile Include="Types\BaseTypeHelper.cs" />

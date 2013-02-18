@@ -19,6 +19,21 @@ namespace Method.Inject.Spec.Types
 			_callsLog.Add(string.Format("BaseType.DoWork({0})", parameter));
 		}
 
+		public void CallProtectedWork(string parameter)
+		{
+			ProtectedWork(parameter);
+		}
+
+		protected virtual void ProtectedWork(string parameter)
+		{
+			_callsLog.Add(string.Format("BaseType.ProtectedWork({0})", parameter));
+		}
+
+		public void NonVirtualWork(string parameter)
+		{
+			_callsLog.Add(string.Format("BaseType.NonVirtualWork({0})", parameter));
+		}
+
 		public List<string> CallsLog
 		{
 			get { return _callsLog; }

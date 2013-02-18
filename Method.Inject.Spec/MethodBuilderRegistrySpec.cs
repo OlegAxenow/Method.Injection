@@ -47,7 +47,7 @@ namespace Method.Inject.Spec
 		private static void ResetRegistry()
 		{
 			MethodBuilderRegistry.Clear();
-			MethodBuilderRegistry.Register<IDoWorkInjection>(new DoWorkMethodBuilder());
+			MethodBuilderRegistry.Register<IDoWorkInjection>(new DoWorkMethodBuilder("DoWork"));
 		}
 	}
 }
