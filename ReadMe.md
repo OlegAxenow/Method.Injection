@@ -21,6 +21,12 @@ You can see *InjectedTypeBuilderSpec* to see how it works.
 If you are not familiar with Reflection.Emit, I recommend you to write some class with overridden methods 
 and run [Ildasm.exe](http://msdn.microsoft.com/en-us/library/f7dy01k1(v=vs.110).aspx) to see appropriate IL code.
 
+## How to install from NuGet
+
+First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). Then, install Method.Inject from the package manager console:
+
+	PM> Install-Package Method.Inject
+
 ## Requirements and dependencies
 
 License: [MIT](http://opensource.org/licenses/MIT).
