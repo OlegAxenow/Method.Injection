@@ -55,6 +55,7 @@
     <Compile Include="InjectionSetSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringHelperSpec.cs" />
+    <Compile Include="Types\GenericBaseType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

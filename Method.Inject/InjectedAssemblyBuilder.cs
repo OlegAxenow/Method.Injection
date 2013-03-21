@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Text;
 using System.Threading;
 
 namespace Method.Inject
@@ -10,6 +11,7 @@ namespace Method.Inject
 	/// </summary>
 	public class InjectedAssemblyBuilder
 	{
+		private const char NameSeparator = '_';
 		private readonly InjectionSet _injectionSet;
 		private readonly Func<TypeBuilder, InjectedTypeBuilder> _injectedTypeBuilderFactory;
 		private readonly AssemblyBuilder _assemblyBuilder;
@@ -61,7 +63,7 @@ namespace Method.Inject
 
 		private TypeBuilder CreateTypeBuilder(Type contextType)
 		{
-			return _moduleBuilder.DefineType(contextType.Name + _injectionSet.UniqueKey,
+			return _moduleBuilder.DefineType(GetTypeName(contextType) + NameSeparator + _injectionSet.UniqueKey,
 				TypeAttributes.Public |
 					TypeAttributes.Class |
 					TypeAttributes.AutoClass |
@@ -69,6 +71,22 @@ namespace Method.Inject
 					TypeAttributes.BeforeFieldInit |
 					TypeAttributes.AutoLayout,
 				contextType);
-		}		
+		}
+
+		private string GetTypeName(Type contextType)
+		{
+			if (!contextType.IsGenericType)
+				return contextType.Name;
+
+			var builder = new StringBuilder();
+			var endIndex = contextType.Name.IndexOf('`');
+			builder.Append(contextType.Name.Substring(0, endIndex)).Append(NameSeparator);
+			foreach (var argument in contextType.GetGenericArguments())
+			{
+				builder.Append(GetTypeName(argument)).Append(NameSeparator);
+			}
+			
+			return builder.ToString();
+		}
 	}
 }
