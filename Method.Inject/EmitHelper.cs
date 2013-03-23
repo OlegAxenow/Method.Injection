@@ -35,7 +35,7 @@ namespace Method.Inject
 
 			il.Emit(OpCodes.Ldc_I4_0);
 			il.Emit(OpCodes.Stloc_1);
-			il.Emit(OpCodes.Br_S, endOfFor);
+			il.Emit(OpCodes.Br, endOfFor);
 
 			il.MarkLabel(beginOfFor);
 			
@@ -61,7 +61,7 @@ namespace Method.Inject
 			il.Emit(OpCodes.Stloc_2);
 			il.Emit(OpCodes.Ldloc_2);
 
-			il.Emit(OpCodes.Brtrue_S, beginOfFor);
+			il.Emit(OpCodes.Brtrue, beginOfFor);
 		}
 
 		/// <summary>
