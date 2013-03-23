@@ -46,6 +46,7 @@
     <Compile Include="Injections\IProtectedWorkInjection.cs" />
     <Compile Include="Injections\ProtectedWorkInjection.cs" />
     <Compile Include="MethodBuilderRegistrySpec.cs" />
+    <Compile Include="ReflectionHelperSpec.cs" />
     <Compile Include="Types\BaseType.cs" />
     <Compile Include="Types\BaseTypeHelper.cs" />
     <Compile Include="Injections\DoWorkInjection.cs" />

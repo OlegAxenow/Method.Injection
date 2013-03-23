@@ -48,7 +48,5 @@ namespace Method.Inject
 		public MethodInfo BaseMethod { get; private set; }
 
 		public MethodBuilder OverriddenMethod { get; private set; }
-
-
 	}
 }

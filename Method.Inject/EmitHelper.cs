@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using System.Reflection.Emit;
 
 namespace Method.Inject
@@ -26,11 +25,10 @@ namespace Method.Inject
 		}
 
 		/// <summary>
-		/// Emits "for" loop with calls of <paramref name="injectionMethod"/>.
+		/// Emits "for" loop with calls of <paramref name="callInsideLoop"/>.
 		/// </summary>
 		/// <remarks> Parameters not checked.</remarks>
-		public static void EmitInjectionLoop(this ILGenerator il, MethodInfo injectionMethod, 
-			Action<ILGenerator> passParametersForInjectionMethod)
+		public static void EmitInjectionLoop(this ILGenerator il, Action<ILGenerator> callInsideLoop)
 		{
 			var endOfFor = il.DefineLabel();
 			var beginOfFor = il.DefineLabel();
@@ -45,9 +43,7 @@ namespace Method.Inject
 			il.Emit(OpCodes.Ldloc_1);
 			il.Emit(OpCodes.Ldelem_Ref);
 
-			passParametersForInjectionMethod(il);
-
-			il.Emit(OpCodes.Callvirt, injectionMethod);
+			callInsideLoop(il);
 
 			il.Emit(OpCodes.Ldloc_1);
 			il.Emit(OpCodes.Ldc_I4_1);
@@ -74,9 +70,9 @@ namespace Method.Inject
 		/// <remarks> Parameters not checked.</remarks>
 		public static void DeclareLocalsForInjection(Type injectionType, ILGenerator il)
 		{
-			il.DeclareLocal(injectionType.MakeArrayType());
-			il.DeclareLocal(typeof(int));
-			il.DeclareLocal(typeof(bool));
+			il.DeclareLocal(injectionType.MakeArrayType());		// 0
+			il.DeclareLocal(typeof(int));						// 1
+			il.DeclareLocal(typeof(bool));						// 2
 		}
 	}
 }

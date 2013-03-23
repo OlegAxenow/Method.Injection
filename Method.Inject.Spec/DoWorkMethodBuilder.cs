@@ -33,10 +33,12 @@ namespace Method.Inject.Spec
 
 			il.EmitGetInjections(injectionSetField, injectionType);
 
-			il.EmitInjectionLoop(injectionMethod, x =>
+			il.EmitInjectionLoop(x =>
 			{
 				x.Emit(OpCodes.Ldarg_0);
 				x.Emit(OpCodes.Ldarg_1);
+
+				x.Emit(OpCodes.Callvirt, injectionMethod);
 			});
 
 			il.Emit(OpCodes.Ret);
