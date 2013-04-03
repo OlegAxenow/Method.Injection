@@ -17,6 +17,10 @@ Usually, you should perform the following steps:
 
 ## Getting started
 
+You can build it from source or install as NuGet package:
+
+	PM> Install-Package Method.Inject
+
 You can see *InjectedTypeBuilderSpec* to see how it works.
 If you are not familiar with Reflection.Emit, I recommend you to write some class with overridden methods 
 and run [Ildasm.exe](http://msdn.microsoft.com/en-us/library/f7dy01k1(v=vs.110).aspx) to see appropriate IL code.
