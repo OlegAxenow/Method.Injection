@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/OlegAxenow/Method.Injection</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The goal of this project is to provide a way to inject a dependency into a virtual method with simple lightweight library (it will be used in other projects)</description>
-    <releaseNotes>Refactoring. Add ReflectionHelper.</releaseNotes>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright 2013 Oleg Aksenov</copyright>
     <tags>Dependency Injection Reflection.Emit</tags>
   </metadata>
