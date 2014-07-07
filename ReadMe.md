@@ -47,7 +47,8 @@ You can see *InjectedTypeBuilderSpec* to see how it works. Here is the excerpt:
 	newType.DoWork("1");
 
 	// assert
-	Assert.That(string.Join(",", newType.CallsLog), Is.EqualTo("BaseType(),BaseType.DoWork(1),DoWorkInjection.DoWork(1)"));
+	Assert.That(string.Join(",", newType.CallsLog), 
+		Is.EqualTo("BaseType(),BaseType.DoWork(1),DoWorkInjection.DoWork(1)"));
 
 
 If you are not familiar with Reflection.Emit, I recommend you to write some class with overridden methods 
